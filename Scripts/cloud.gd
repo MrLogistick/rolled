@@ -5,7 +5,7 @@ extends Panel
 func _ready() -> void:
 	position.x = 576
 	position.y = randi_range(-324, 324)
-	scale.x = randi_range(1, 2.5)
+	scale.x = randi_range(1.0, 2.5)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,7 +1,7 @@
 extends Node2D
 
 const GROUND = preload("res://Scenes/ground.tscn")
-const SPAWNPOINT: Vector2 = Vector2(800, 250)
+const SPAWNPOINT: Vector2 = Vector2(800, 0)
 
 func _ready() -> void:
 	spawn_ground(Vector2(-SPAWNPOINT.x, SPAWNPOINT.y))
