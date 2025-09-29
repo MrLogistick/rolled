@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://cbsxymu5d3mc"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://cbsxymu5d3mc"]
+
+[ext_resource type="PackedScene" uid="uid://br380vh364suh" path="res://Scenes/ground_movement.tscn" id="1_jjgbg"]
+>>>>>>> fd79671a78403b9a4839d1adce11b1a82543e697
 
 [ext_resource type="PackedScene" uid="uid://b7einx7u6fg2" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://dcd0jptj7gbus" path="res://icon.svg" id="2_bo1nx"]
@@ -13,6 +19,7 @@ size = Vector2(1242, 20)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+<<<<<<< HEAD
 scale = Vector2(0.5, 0.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -59,3 +66,9 @@ scale = Vector2(29.336248, 17.39266)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.3764706, 0.92156863, 1, 1)
+=======
+zoom = Vector2(4, 4)
+
+[node name="Ground" parent="." instance=ExtResource("1_jjgbg")]
+position = Vector2(0, 66)
+>>>>>>> fd79671a78403b9a4839d1adce11b1a82543e697
