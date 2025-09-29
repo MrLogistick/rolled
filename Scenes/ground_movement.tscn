@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://br380vh364suh"]
 
-[ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://ground_movement.gd" id="1_ecwf6"]
+[ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_ecwf6"]
 [ext_resource type="Texture2D" uid="uid://dcd0jptj7gbus" path="res://icon.svg" id="2_dd8jd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3xcc"]
@@ -8,6 +8,12 @@ size = Vector2(128, 128)
 
 [node name="Ground" type="StaticBody2D"]
 script = ExtResource("1_ecwf6")
+
+[node name="StartPlatform" type="Node2D" parent="."]
+position = Vector2(-64, 0)
+
+[node name="EndPlatform" type="Node2D" parent="."]
+position = Vector2(64, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_dd8jd")
