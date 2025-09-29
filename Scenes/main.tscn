@@ -1,10 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbsxymu5d3mc"]
+[gd_scene load_steps=5 format=3 uid="uid://cbsxymu5d3mc"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7u77a"]
+[ext_resource type="PackedScene" uid="uid://b7einx7u6fg2" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://dcd0jptj7gbus" path="res://icon.svg" id="2_bo1nx"]
+[ext_resource type="FontFile" uid="uid://b2iu6ks5misbq" path="res://Fonts/PixelFont.ttf" id="3_8gbba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgbg"]
+size = Vector2(1242, 20)
 
 [node name="Main" type="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_7u77a")
+[node name="Player" parent="." instance=ExtResource("1_jjgbg")]
+scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 273)
+shape = SubResource("RectangleShape2D_jjgbg")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, 298.59802)
+scale = Vector2(9.806452, 0.6312806)
+texture = ExtResource("2_bo1nx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="DistanceText" type="Label" parent="CanvasLayer"]
+offset_left = -567.0
+offset_top = -315.0
+offset_right = -500.0
+offset_bottom = -292.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8gbba")
+theme_override_font_sizes/font_size = 71
+text = "Distance:  100"
+
+[node name="RankText" type="Label" parent="CanvasLayer"]
+offset_left = -567.0
+offset_top = -243.0
+offset_right = -97.0
+offset_bottom = -171.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8gbba")
+theme_override_font_sizes/font_size = 71
+text = "Rank: D"
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -3
+offset_left = -593.00006
+offset_top = -358.0
+offset_right = -553.00006
+offset_bottom = -318.0
+scale = Vector2(29.336248, 17.39266)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.3764706, 0.92156863, 1, 1)
