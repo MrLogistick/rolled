@@ -1,27 +1,27 @@
 extends StaticBody2D
 
-@onready var start_platform: Node2D = $StartPlatform
 @onready var end_platform: Node2D = $EndPlatform
-const GROUND = preload("res://Scenes/ground.tscn")
+@onready var spawn_node: Node2D = $"../SpawnPoint"
 
-const SPAWNPOINT: Vector2 = Vector2(155, 95)
 const PLATFORM_SIZE = 128
+var spawnpoint: Vector2
 var speed = 60
 var has_spawned = false
 
-func _ready() -> void:
-	pass
-
 func _process(delta: float) -> void:
+	spawnpoint = Vector2(800, 250)
+	if spawnpoint == Vector2.ZERO:
+		print("'spawnpoint' has not been set.")
+		return
+	
 	position.x -= speed * delta
 	
 	var ep_position = end_platform.global_position
 	# spawns a new platform when the edge of the old platform reaches the edge
-	if ep_position.x < SPAWNPOINT.x && has_spawned == false:
-		var ground = GROUND.instantiate()
-		get_parent().add_child(ground)
-		ground.position = Vector2(ep_position.x + PLATFORM_SIZE / 2, ep_position.y)
+	if ep_position.x < spawnpoint.x && has_spawned == false:
+		spawn_node.spawn_ground(Vector2(ep_position.x + PLATFORM_SIZE / 2, ep_position.y))
 		has_spawned = true
 	
-	if ep_position.x < -SPAWNPOINT.x:
+	# destroys platform once out of range
+	if ep_position.x < -spawnpoint.x:
 		queue_free()

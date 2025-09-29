@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ca1eolm3dtx53"]
 
-[ext_resource type="Script" uid="uid://cs7dxcd1t3jsa" path="res://Scripts/Manager.gd" id="1_kxpqo"]
+[ext_resource type="Script" path="res://Scripts/Manager.gd" id="1_kxpqo"]
 [ext_resource type="PackedScene" uid="uid://b7einx7u6fg2" path="res://Scenes/player.tscn" id="1_u2lo2"]
 [ext_resource type="FontFile" uid="uid://b2iu6ks5misbq" path="res://Fonts/PixelFont.ttf" id="2_1kwmr"]
 [ext_resource type="Script" uid="uid://dqpplg1chser0" path="res://Scripts/CloudManager.gd" id="3_1kwmr"]
@@ -21,7 +21,6 @@ ignore_rotation = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 rotation = -0.174533
-scale = Vector2(1, 1)
 transform = Transform2D(0.984808, -0.173648, 0.173648, 0.984808, 0, 0)
 follow_viewport_enabled = true
 
