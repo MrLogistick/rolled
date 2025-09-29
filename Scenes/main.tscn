@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://cbsxymu5d3mc"]
+[gd_scene load_steps=2 format=3 uid="uid://cbsxymu5d3mc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7u77a"]
 
 [node name="Main" type="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_7u77a")
+
+[node name="Camera2D" type="Camera2D" parent="."]
