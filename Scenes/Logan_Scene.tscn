@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://t1073xax0n1"]
+[gd_scene load_steps=2 format=3 uid="uid://t1073xax0n1"]
+
+[ext_resource type="PackedScene" uid="uid://cvdso3kmui6y2" path="res://Scenes/ground.tscn" id="1_bx3an"]
 
 [node name="LoganScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation = -0.174533
+ignore_rotation = false
+zoom = Vector2(4, 4)
+
+[node name="ground" parent="." instance=ExtResource("1_bx3an")]
+position = Vector2(150, 95)
