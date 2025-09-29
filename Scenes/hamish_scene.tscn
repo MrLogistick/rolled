@@ -18,10 +18,11 @@ scale = Vector2(0.5, 0.5)
 [node name="Camera2D" type="Camera2D" parent="."]
 rotation = -0.174533
 ignore_rotation = false
+zoom = Vector2(0.1, 0.1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-rotation = -0.174533
-scale = Vector2(1, 1)
+rotation = -0.1745327
+scale = Vector2(1.0000002, 1.0000002)
 transform = Transform2D(0.984808, -0.173648, 0.173648, 0.984808, 0, 0)
 follow_viewport_enabled = true
 
@@ -64,5 +65,6 @@ autostart = true
 [node name="GroundManager" type="Node2D" parent="."]
 
 [node name="SpawnPoint" type="Node2D" parent="GroundManager"]
+unique_name_in_owner = true
 position = Vector2(800, 250)
 script = ExtResource("5_7osyn")

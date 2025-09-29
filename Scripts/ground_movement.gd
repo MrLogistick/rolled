@@ -1,12 +1,16 @@
 extends StaticBody2D
 
 @onready var end_platform: Node2D = $EndPlatform
-@onready var spawn_node: Node2D = $"../SpawnPoint"
+
+var spawn_node
+
 
 const PLATFORM_SIZE = 128
 var spawnpoint: Vector2
 var speed = 60
 var has_spawned = false
+
+
 
 func _process(delta: float) -> void:
 	spawnpoint = Vector2(800, 250)
