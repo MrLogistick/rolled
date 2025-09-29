@@ -11,5 +11,25 @@ config_version=5
 [application]
 
 config/name="Rolled_Godot"
-config/features=PackedStringArray("4.4", "Forward Plus")
+run/main_scene="uid://cbsxymu5d3mc"
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[input]
+
+Jump={
+"deadzone": 0.2,
+"events": []
+}
+Down={
+"deadzone": 0.2,
+"events": []
+}
+Right={
+"deadzone": 0.2,
+"events": []
+}
+Left={
+"deadzone": 0.2,
+"events": []
+}
