@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Rolled_Godot"
-config/features=PackedStringArray("4.4", "Forward Plus")
+run/main_scene="uid://ca1eolm3dtx53"
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]

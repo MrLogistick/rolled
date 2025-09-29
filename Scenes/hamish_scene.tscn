@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca1eolm3dtx53"]
+[gd_scene load_steps=6 format=3 uid="uid://ca1eolm3dtx53"]
 
+[ext_resource type="Script" uid="uid://cs7dxcd1t3jsa" path="res://Scripts/Manager.gd" id="1_kxpqo"]
 [ext_resource type="PackedScene" uid="uid://b7einx7u6fg2" path="res://Scenes/player.tscn" id="1_u2lo2"]
 [ext_resource type="FontFile" uid="uid://b2iu6ks5misbq" path="res://Fonts/PixelFont.ttf" id="2_1kwmr"]
+[ext_resource type="Script" uid="uid://dqpplg1chser0" path="res://Scripts/CloudManager.gd" id="3_1kwmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxpqo"]
 size = Vector2(1250, 128)
 
 [node name="HamishScene" type="Node2D"]
+
+[node name="Manager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_kxpqo")
 
 [node name="Player" parent="." instance=ExtResource("1_u2lo2")]
 scale = Vector2(0.5, 0.5)
@@ -63,3 +69,9 @@ offset_right = -545.0
 offset_bottom = -297.0
 scale = Vector2(29.774654, 17.180487)
 color = Color(0.3764706, 0.92156863, 1, 1)
+
+[node name="CloudManager" type="Node2D" parent="."]
+script = ExtResource("3_1kwmr")
+
+[node name="DistanceTracker" type="Timer" parent="."]
+autostart = true
