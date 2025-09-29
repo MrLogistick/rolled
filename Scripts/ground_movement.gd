@@ -10,8 +10,6 @@ var spawnpoint: Vector2
 var speed = 60
 var has_spawned = false
 
-
-
 func _process(delta: float) -> void:
 	spawnpoint = Vector2(800, 250)
 	if spawnpoint == Vector2.ZERO:
