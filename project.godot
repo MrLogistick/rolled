@@ -14,6 +14,7 @@ config/name="Rolled_Godot"
 run/main_scene="uid://ca1eolm3dtx53"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://t1073xax0n1"
 
 [display]
 
