@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6yjhjvx70e48"]
+
+[ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_ry178"]
+[ext_resource type="Texture2D" uid="uid://dcd0jptj7gbus" path="res://icon.svg" id="2_1ym5c"]
+
+[node name="ground" type="StaticBody2D"]
+rotation = 0.261799
+script = ExtResource("1_ry178")
+
+[node name="EndPlatform" type="Node2D" parent="."]
+position = Vector2(64, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1ym5c")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, 64, 64, 64, 64, -128, -64, -64)

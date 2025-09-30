@@ -9,6 +9,6 @@ var Distance: float = 0
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Distance += 0.1
 	distance_text.text = "Distance: " + str(round(Distance))
