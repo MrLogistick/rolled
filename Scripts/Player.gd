@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 
+const POSITION = -250
 const SPEED = 300
 const JUMP_VELOCITY = -650
 const GRAVITY = 1200
@@ -35,4 +36,5 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
+	position.x = POSITION
 	move_and_slide()

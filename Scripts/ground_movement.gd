@@ -5,7 +5,7 @@ var spawn_node
 
 const PLATFORM_SIZE: float = 128
 var spawnpoint: Vector2
-var speed = 320
+var speed = 640
 var has_spawned = false
 
 func _process(delta: float) -> void:
