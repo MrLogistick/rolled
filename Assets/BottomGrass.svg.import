@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8i012i68xgay"
-path="res://.godot/imported/WheelSprite.png-63b4492cd25044616fd8c5cbb9e39479.ctex"
+uid="uid://b11cqvttfbgsu"
+path="res://.godot/imported/BottomGrass.svg-5d0bc2ef99544e1409029d222c066cc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/WheelSprite.png"
-dest_files=["res://.godot/imported/WheelSprite.png-63b4492cd25044616fd8c5cbb9e39479.ctex"]
+source_file="res://Assets/BottomGrass.svg"
+dest_files=["res://.godot/imported/BottomGrass.svg-5d0bc2ef99544e1409029d222c066cc2.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
