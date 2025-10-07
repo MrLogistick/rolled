@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmcpj88f3h0h2"
-path="res://.godot/imported/Cloud-1.png-acc8cc72735964326e1b421f948e61b4.ctex"
+uid="uid://dyuy5nrydrlrj"
+path="res://.godot/imported/tile_0068.png-53956e31e406c8b3a6b126a98bfa2fae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cloud-1.png"
-dest_files=["res://.godot/imported/Cloud-1.png-acc8cc72735964326e1b421f948e61b4.ctex"]
+source_file="res://Assets/tile_0068.png"
+dest_files=["res://.godot/imported/tile_0068.png-53956e31e406c8b3a6b126a98bfa2fae.ctex"]
 
 [params]
 

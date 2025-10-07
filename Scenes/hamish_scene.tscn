@@ -12,7 +12,8 @@
 unique_name_in_owner = true
 script = ExtResource("1_kxpqo")
 
-[node name="Player" parent="." instance=ExtResource("1_u2lo2")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_u2lo2")]
+unique_name_in_owner = true
 position = Vector2(-250, -50)
 scale = Vector2(0.5, 0.5)
 

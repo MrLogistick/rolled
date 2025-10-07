@@ -3,6 +3,12 @@ extends StaticBody2D
 @onready var end_platform: Node2D = $EndPlatform
 var spawn_node
 
+@onready var SpawnPointNode: Node2D = %SpawnPoint
+
+@onready var Player: CharacterBody2D = %Player
+
+var Stop = false
+
 const PLATFORM_SIZE: float = 128
 var spawnpoint: Vector2
 var speed = 640
@@ -25,3 +31,9 @@ func _process(delta: float) -> void:
 	# destroys platform once out of range
 	if ep_position.x < -spawnpoint.x:
 		queue_free()
+		
+
+func On_Spike_Trap_Area_Entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		var SpawningNode = $".".get_parent()
+		SpawningNode.Death()
