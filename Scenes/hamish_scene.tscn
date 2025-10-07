@@ -14,11 +14,15 @@ script = ExtResource("1_kxpqo")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_u2lo2")]
 unique_name_in_owner = true
-position = Vector2(-250, -50)
+position = Vector2(-100, -50)
 scale = Vector2(0.5, 0.5)
+JUMP_VELOCITY = -250
+GRAVITY = 600
+FALL_GRAVITY = 750
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
+zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -64,3 +68,4 @@ autostart = true
 [node name="SpawnPoint" type="Node2D" parent="GroundManager"]
 unique_name_in_owner = true
 script = ExtResource("5_7osyn")
+SPAWNPOINT = Vector2(150, 50)

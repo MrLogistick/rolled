@@ -1,14 +1,14 @@
-extends RigidBody2D
+extends StaticBody2D
 
 @onready var end_platform: Node2D = $EndPlatform
 var spawn_node
-@onready var Player: CharacterBody2D = %Player
+# @onready var Player: CharacterBody2D = %Player
 
 var Stop = false
 
 const PLATFORM_SIZE: float = 64
 var spawnpoint: Vector2
-var speed = 320
+var speed: float = 32
 var has_spawned = false
 
 func _process(delta: float) -> void:
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		print("'spawnpoint' has not been set.")
 		return
 	
-	global_position -= Vector2(speed, speed / 2) * delta
+	global_position -= Vector2(speed, 0) * delta
 	
 	var ep_position = end_platform.global_position
 	# spawns a new platform when the edge of the old platform reaches the edge
@@ -30,6 +30,6 @@ func _process(delta: float) -> void:
 		queue_free()
 		
 
-func On_Spike_Trap_Area_Entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		spawn_node.Death()
+#func On_Spike_Trap_Area_Entered(body: Node2D) -> void:
+#	if body.is_in_group("Player"):
+#		spawn_node.Death()

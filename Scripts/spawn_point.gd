@@ -1,12 +1,12 @@
 extends Node2D
 
-const SPAWNPOINT: Vector2 = Vector2(800, 0)
+@export var SPAWNPOINT: Vector2 = Vector2(300, 0)
 
 var stop = false
 
 var ground_list = [
-	preload("res://Scenes/Ground_Scenes/default_ground.tscn"),
-	preload("res://Scenes/Ground_Scenes/floor_hazard.tscn")
+	preload("res://Scenes/Ground_Scenes/default_ground_flat.tscn"),
+	# preload("res://Scenes/Ground_Scenes/floor_hazard.tscn")
 ]
 
 func _ready() -> void:

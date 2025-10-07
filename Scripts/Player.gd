@@ -2,12 +2,12 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 
-const POSITION = -250
-const SPEED = 300
-const JUMP_VELOCITY = -650
-const GRAVITY = 1200
-const FALL_GRAVITY = 1500
-const jump_buffer = 0.1
+@export var POSITION = -100
+@export var SPEED = 300
+@export var JUMP_VELOCITY = -65
+@export var GRAVITY = 1200
+@export var FALL_GRAVITY = 1500
+@export var JUMP_BUFFER = 0.1
 
 var LRMovement = false
 var buffer_elapsed: float
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	
 	buffer_elapsed -= 1 * delta;
 	if Input.is_action_just_pressed("Jump"):
-		buffer_elapsed = jump_buffer
+		buffer_elapsed = JUMP_BUFFER
 	
 	if buffer_elapsed > 0 && is_on_floor():
 		velocity.y = JUMP_VELOCITY
