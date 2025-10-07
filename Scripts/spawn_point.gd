@@ -4,7 +4,7 @@ const SPAWNPOINT: Vector2 = Vector2(800, 0)
 
 var ground_list = [
 	preload("res://Scenes/ground.tscn"),
-	preload("res://Scenes/ground_ramp.tscn")
+	# preload("res://Scenes/ground_ramp.tscn")
 ]
 
 func _ready() -> void:
