@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 @onready var end_platform: Node2D = $EndPlatform
 var spawn_node
