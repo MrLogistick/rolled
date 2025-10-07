@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Rolled_Godot"
 run/main_scene="uid://ca1eolm3dtx53"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="uid://t1073xax0n1"
 
@@ -39,3 +39,7 @@ Left={
 [physics]
 
 2d/default_gravity=1200.0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

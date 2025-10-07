@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var distance_tracker: Timer = $"../DistanceTracker"
 @onready var distance_text: Label = $"../CanvasLayer/DistanceText"
-@onready var Danager_Node: Node2D = $"../Danager"
 
 var Distance: float = 0
 
