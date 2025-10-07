@@ -124,14 +124,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
-radius = 64.00781
+radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_fs7ks")
 autoplay = "default"
 frame_progress = 0.812428
