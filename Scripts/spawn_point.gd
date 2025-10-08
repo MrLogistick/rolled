@@ -1,9 +1,8 @@
 extends Node2D
 
 @onready var manager: Node2D = %Manager
-
 @export var SPAWNPOINT: Vector2 = Vector2(300, 0)
-var stop = false
+var initial_number: int = 5
 
 var ground_list = [
 	preload("res://Scenes/Ground_Scenes/floor_default.tscn"),
@@ -11,18 +10,21 @@ var ground_list = [
 ]
 
 func _ready() -> void:
-	spawn_ground(Vector2(-SPAWNPOINT.x, SPAWNPOINT.y))
+	spawn_ground(Vector2(-SPAWNPOINT.x, SPAWNPOINT.y), true)
 	
-func spawn_ground(pos: Vector2) -> void:
-	if stop == true: return
+func spawn_ground(pos: Vector2, initial: bool) -> void:
+	var rand = 0
+	if !initial:
+		rand = randf_range(0, ground_list.size())
 	
-	var rand = randf_range(0, ground_list.size())
 	var ground = ground_list[rand].instantiate()
+	
 	ground.spawnpoint = SPAWNPOINT
-	ground.speed = manager.game_speed
 	ground.global_position = pos
 	ground.spawn_node = %SpawnPoint
-	add_child(ground)
+	ground.manager = %Manager
 	
-func Death():
-	stop = true
+	initial_number -= 1
+	ground.initial_number = initial_number
+	
+	add_child(ground)

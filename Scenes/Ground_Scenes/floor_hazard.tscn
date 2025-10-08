@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dai5ss7ft6gsf"]
+[gd_scene load_steps=5 format=3 uid="uid://dai5ss7ft6gsf"]
 
 [ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_ap8s3"]
 [ext_resource type="Texture2D" uid="uid://bkvwk4fg7w54r" path="res://Sprites/Ground_Shallow.png" id="2_aywms"]
 [ext_resource type="Texture2D" uid="uid://cx7ieta05gvyd" path="res://Sprites/Single_Stump.png" id="3_l01re"]
+[ext_resource type="Script" uid="uid://cvf6fg0rbfn01" path="res://Scenes/Ground_Scenes/hazard.gd" id="3_ygl0w"]
 
 [node name="FloorHazard" type="StaticBody2D"]
 rotation = 0.244346
@@ -20,13 +21,15 @@ texture = ExtResource("2_aywms")
 [node name="EndPlatform" type="Node2D" parent="FloorSprite"]
 position = Vector2(32, 8)
 
-[node name="Area2D" type="Area2D" parent="FloorSprite"]
+[node name="Hazard" type="Area2D" parent="FloorSprite"]
 position = Vector2(0, -4.76837e-07)
+script = ExtResource("3_ygl0w")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/Hazard"]
 polygon = PackedVector2Array(-6, -30, 6, -30, 6, -19, 9, -14, -9, -19, -6, -22)
 
-[node name="HazardSprite" type="Sprite2D" parent="FloorSprite/Area2D"]
+[node name="HazardSprite" type="Sprite2D" parent="FloorSprite/Hazard"]
 position = Vector2(0, -8)
-scale = Vector2(1, 1)
 texture = ExtResource("3_l01re")
+
+[connection signal="body_entered" from="FloorSprite/Hazard" to="FloorSprite/Hazard" method="_on_body_entered"]
