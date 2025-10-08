@@ -1,46 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://wghy4o2n4qpk"]
+[gd_scene load_steps=4 format=3 uid="uid://dai5ss7ft6gsf"]
 
 [ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_ap8s3"]
-[ext_resource type="Texture2D" uid="uid://bx0qta80mu7u5" path="res://Sprites/Ground.png" id="1_vhvvt"]
-[ext_resource type="Texture2D" uid="uid://dyuy5nrydrlrj" path="res://Assets/tile_0068.png" id="3_15r1u"]
+[ext_resource type="Texture2D" uid="uid://bkvwk4fg7w54r" path="res://Sprites/Ground_Shallow.png" id="2_aywms"]
+[ext_resource type="Texture2D" uid="uid://cx7ieta05gvyd" path="res://Sprites/Single_Stump.png" id="3_l01re"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hstq5"]
-size = Vector2(13.25, 8.67269)
-
-[node name="RigidBody2D" type="StaticBody2D"]
+[node name="FloorHazard" type="StaticBody2D"]
+rotation = 0.244346
+scale = Vector2(2, 2)
 script = ExtResource("1_ap8s3")
 
-[node name="EndPlatform" type="Node2D" parent="."]
-position = Vector2(32, 32)
+[node name="FloorCollider" type="CollisionPolygon2D" parent="."]
+rotation = -0.244346
+polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_vhvvt")
+[node name="FloorSprite" type="Sprite2D" parent="."]
+rotation = -0.244346
+texture = ExtResource("2_aywms")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-32, 0, -32, -32, 32, 0, 32, 32)
+[node name="EndPlatform" type="Node2D" parent="FloorSprite"]
+position = Vector2(32, 8)
 
-[node name="SpikeSprite2d" type="Sprite2D" parent="." groups=["Danger"]]
-texture_filter = 1
-position = Vector2(-12, -32)
-rotation = 0.462512
-texture = ExtResource("3_15r1u")
-
-[node name="Area2D" type="Area2D" parent="SpikeSprite2d" groups=["Danger"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeSprite2d/Area2D" groups=["Danger"]]
-position = Vector2(-4.76837e-07, 5.66367)
-shape = SubResource("RectangleShape2D_hstq5")
-debug_color = Color(0.895783, 0.246994, 0.516154, 0.419608)
-
-[node name="SpikeSprite2d2" type="Sprite2D" parent="." groups=["Danger"]]
-texture_filter = 1
-position = Vector2(24, -14)
-rotation = 0.462512
-texture = ExtResource("3_15r1u")
-
-[node name="Area2D" type="Area2D" parent="SpikeSprite2d2" groups=["Danger"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeSprite2d2/Area2D" groups=["Danger"]]
-position = Vector2(-4.76837e-07, 5.66367)
-shape = SubResource("RectangleShape2D_hstq5")
-debug_color = Color(0.895783, 0.246994, 0.516154, 0.419608)
+[node name="HazardSprite" type="Sprite2D" parent="FloorSprite"]
+position = Vector2(0, -8)
+scale = Vector2(1, 1)
+texture = ExtResource("3_l01re")

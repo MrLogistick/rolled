@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca1eolm3dtx53"]
+[gd_scene load_steps=7 format=3 uid="uid://ca1eolm3dtx53"]
 
 [ext_resource type="Script" uid="uid://cs7dxcd1t3jsa" path="res://Scripts/Manager.gd" id="1_kxpqo"]
 [ext_resource type="PackedScene" uid="uid://b7einx7u6fg2" path="res://Scenes/player.tscn" id="1_u2lo2"]
 [ext_resource type="FontFile" uid="uid://b2iu6ks5misbq" path="res://Fonts/PixelFont.ttf" id="2_1kwmr"]
 [ext_resource type="Script" uid="uid://dqpplg1chser0" path="res://Scripts/CloudManager.gd" id="3_1kwmr"]
+[ext_resource type="Script" uid="uid://6mjrkkwpmp2h" path="res://Scenes/camera_follow.gd" id="3_v8tvq"]
 [ext_resource type="Script" uid="uid://cikog24htdonh" path="res://Scripts/spawn_point.gd" id="5_7osyn"]
 
 [node name="HamishScene" type="Node2D"]
@@ -15,16 +16,22 @@ script = ExtResource("1_kxpqo")
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_u2lo2")]
 unique_name_in_owner = true
 position = Vector2(-100, -50)
-scale = Vector2(0.5, 0.5)
-JUMP_VELOCITY = -250
+JUMP_VELOCITY = -300
 GRAVITY = 600
-FALL_GRAVITY = 750
+FALL_GRAVITY = 800
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
+script = ExtResource("3_v8tvq")
+MAX_DIST = 30.0
+ACCELERATION = 6.0
+DECCELERATION = 0.9
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 follow_viewport_enabled = true
 
 [node name="DistanceText" type="Label" parent="CanvasLayer"]
@@ -60,12 +67,9 @@ color = Color(0.376471, 0.921569, 1, 1)
 [node name="CloudManager" type="Node2D" parent="."]
 script = ExtResource("3_1kwmr")
 
-[node name="DistanceTracker" type="Timer" parent="."]
-autostart = true
-
 [node name="GroundManager" type="Node2D" parent="."]
 
 [node name="SpawnPoint" type="Node2D" parent="GroundManager"]
 unique_name_in_owner = true
 script = ExtResource("5_7osyn")
-SPAWNPOINT = Vector2(150, 50)
+SPAWNPOINT = Vector2(300, -10)

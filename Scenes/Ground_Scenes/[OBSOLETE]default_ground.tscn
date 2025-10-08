@@ -4,13 +4,16 @@
 [ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_ixvxm"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
+rotation = 0.462512
 script = ExtResource("1_ixvxm")
 
-[node name="EndPlatform" type="Node2D" parent="."]
-position = Vector2(32, 32)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = -0.462512
+polygon = PackedVector2Array(-32, 0, -32, -32, 32, 0, 32, 32)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.462512
 texture = ExtResource("1_c6243")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-32, 0, -32, -32, 32, 0, 32, 32)
+[node name="EndPlatform" type="Node2D" parent="Sprite2D"]
+position = Vector2(32, 16)

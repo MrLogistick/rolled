@@ -1,14 +1,21 @@
 extends Node2D
 
-@onready var distance_tracker: Timer = $"../DistanceTracker"
-@onready var distance_text: Label = $"../CanvasLayer/DistanceText"
+@onready var canvas_layer: CanvasLayer = %CanvasLayer
+var distance_text
 
-var Distance: float = 0
-
+var distance: float = 0
+var start_speed: float = 128
+var game_speed: float = start_speed
 
 func _ready() -> void:
-	pass
+	distance_text = canvas_layer.get_child(0)
 
 func _process(_delta: float) -> void:
-	Distance += 0.1
-	distance_text.text = "Distance: " + str(round(Distance))
+	_dist_counter(0.1)
+
+func _dist_counter(delay: float):
+	await get_tree().create_timer(delay).timeout
+	distance += 0.1
+	
+	var score = round(distance * 100) / 100
+	distance_text.text = str("%05.0f" % score) + " Meters"
