@@ -20,7 +20,13 @@ texture = ExtResource("2_aywms")
 [node name="EndPlatform" type="Node2D" parent="FloorSprite"]
 position = Vector2(32, 8)
 
-[node name="HazardSprite" type="Sprite2D" parent="FloorSprite"]
+[node name="Area2D" type="Area2D" parent="FloorSprite"]
+position = Vector2(0, -4.76837e-07)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/Area2D"]
+polygon = PackedVector2Array(-6, -30, 6, -30, 6, -19, 9, -14, -9, -19, -6, -22)
+
+[node name="HazardSprite" type="Sprite2D" parent="FloorSprite/Area2D"]
 position = Vector2(0, -8)
 scale = Vector2(1, 1)
 texture = ExtResource("3_l01re")
