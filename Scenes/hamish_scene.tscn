@@ -16,9 +16,6 @@ script = ExtResource("1_kxpqo")
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_u2lo2")]
 unique_name_in_owner = true
 position = Vector2(-100, -50)
-JUMP_VELOCITY = -300
-GRAVITY = 600
-FALL_GRAVITY = 800
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false

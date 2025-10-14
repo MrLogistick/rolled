@@ -3,12 +3,12 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var manager: Node2D = %Manager
 
-@export var POSITION = -100
-@export var SPEED = 300
-@export var JUMP_VELOCITY = -96
-@export var GRAVITY = 1200
-@export var FALL_GRAVITY = 1500
-@export var JUMP_BUFFER = 0.1
+var POSITION = -100
+var JUMP_VELOCITY = -350
+var GRAVITY = 800
+var FALL_GRAVITY = 1200
+var FORCE_FALL = 700
+var JUMP_BUFFER = 0.1
 
 var LRMovement = false
 var buffer_elapsed: float
@@ -44,8 +44,11 @@ func _jump_process(delta: float):
 		velocity.y = JUMP_VELOCITY
 	
 	# Stretch Jump Stuff
-	if !_jump_input() && velocity.y < 0:
-		velocity.y *= 0.8
+	if Input.is_action_just_released("Jump") && velocity.y < 0:
+		velocity.y *= 0.5
+	
+	if Input.is_action_just_pressed("Down"):
+		velocity.y = FORCE_FALL
 
 func death():
 	manager.end = true

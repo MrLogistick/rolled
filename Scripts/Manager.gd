@@ -5,7 +5,7 @@ var distance_text
 
 var end = false
 var distance: float = 0
-@export var start_speed: float = 128
+@export var start_speed: float = 156
 var game_speed: float = start_speed
 @export var end_multiplier: float = 0.9
 
