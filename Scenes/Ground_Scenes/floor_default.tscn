@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkvwk4fg7w54r" path="res://Sprites/Ground_Shallow.png" id="2_ulryk"]
 
 [node name="FloorDefault" type="StaticBody2D"]
+z_index = 1
 rotation = 0.244346
 scale = Vector2(2, 2)
 script = ExtResource("1_68803")

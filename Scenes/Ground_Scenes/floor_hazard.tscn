@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cvf6fg0rbfn01" path="res://Scenes/Ground_Scenes/hazard.gd" id="3_ygl0w"]
 
 [node name="FloorHazard" type="StaticBody2D"]
+z_index = 1
 rotation = 0.244346
 scale = Vector2(2, 2)
 script = ExtResource("1_ap8s3")
