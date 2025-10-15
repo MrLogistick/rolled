@@ -4,6 +4,8 @@ extends StaticBody2D
 var spawn_node
 var manager
 
+@export var sprites: Array[Area2D]
+
 # Steep: 71.5 Shallow 65.5
 const PLATFORM_SIZE: float = 65.5
 var spawnpoint: Vector2
@@ -15,6 +17,10 @@ var initial_number: int
 func _ready() -> void:
 	if initial_number <= 0:
 		initial = false
+	
+	if sprites:
+		var chosen_sprite = randi() % sprites.size()
+		sprites[chosen_sprite].visible = true
 
 func _process(delta: float) -> void:
 	if spawnpoint == Vector2.ZERO:

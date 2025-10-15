@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccskpfxbpwbly"]
+
+[ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_647bd"]
+[ext_resource type="Texture2D" uid="uid://bkvwk4fg7w54r" path="res://Sprites/Ground_Shallow.png" id="2_cimc0"]
+[ext_resource type="Script" uid="uid://cvf6fg0rbfn01" path="res://Scenes/Ground_Scenes/hazard.gd" id="3_r4c8s"]
+[ext_resource type="Texture2D" uid="uid://cq2ccmp5wka30" path="res://Sprites/Single_Tall_Stump.png" id="4_647bd"]
+
+[node name="FloorHazard" type="StaticBody2D"]
+z_index = 1
+rotation = 0.244346
+scale = Vector2(2, 2)
+script = ExtResource("1_647bd")
+
+[node name="FloorCollider" type="CollisionPolygon2D" parent="."]
+rotation = -0.244346
+polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
+
+[node name="FloorSprite" type="Sprite2D" parent="."]
+rotation = -0.244346
+texture = ExtResource("2_cimc0")
+
+[node name="EndPlatform" type="Node2D" parent="FloorSprite"]
+position = Vector2(32, 8)
+
+[node name="Hazard" type="Area2D" parent="FloorSprite"]
+position = Vector2(0, -4.76837e-07)
+script = ExtResource("3_r4c8s")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/Hazard"]
+polygon = PackedVector2Array(-6, -38, 6, -38, 6, -19, 9, -14, -9, -19, -6, -22)
+
+[node name="HazardSprite" type="Sprite2D" parent="FloorSprite/Hazard"]
+position = Vector2(0, -8)
+texture = ExtResource("4_647bd")
+
+[connection signal="body_entered" from="FloorSprite/Hazard" to="FloorSprite/Hazard" method="_on_body_entered"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca1eolm3dtx53"]
+[gd_scene load_steps=6 format=3 uid="uid://ca1eolm3dtx53"]
 
 [ext_resource type="Script" uid="uid://cs7dxcd1t3jsa" path="res://Scripts/Manager.gd" id="1_kxpqo"]
 [ext_resource type="PackedScene" uid="uid://b7einx7u6fg2" path="res://Scenes/player.tscn" id="1_u2lo2"]
 [ext_resource type="FontFile" uid="uid://b2iu6ks5misbq" path="res://Fonts/PixelFont.ttf" id="2_1kwmr"]
-[ext_resource type="Script" uid="uid://dqpplg1chser0" path="res://Scripts/CloudManager.gd" id="3_1kwmr"]
 [ext_resource type="Script" uid="uid://6mjrkkwpmp2h" path="res://Scenes/camera_follow.gd" id="3_v8tvq"]
 [ext_resource type="Script" uid="uid://cikog24htdonh" path="res://Scripts/spawn_point.gd" id="5_7osyn"]
 
@@ -60,10 +59,6 @@ offset_bottom = 1.0
 scale = Vector2(2000, 1000)
 pivot_offset = Vector2(0.5, 0.5)
 color = Color(0.269681, 0.511313, 0.629186, 1)
-
-[node name="CloudManager" type="Node2D" parent="."]
-visible = false
-script = ExtResource("3_1kwmr")
 
 [node name="GroundManager" type="Node2D" parent="."]
 

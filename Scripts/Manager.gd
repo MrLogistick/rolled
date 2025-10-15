@@ -12,7 +12,7 @@ var game_speed: float = start_speed
 func _ready() -> void:
 	distance_text = canvas_layer.get_child(0)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if end:
 		game_speed *= end_multiplier
 		

@@ -6,6 +6,7 @@ var initial_number: int = 5
 
 var ground_list = [
 	preload("res://Scenes/Ground_Scenes/floor_default.tscn"),
+	preload("res://Scenes/Ground_Scenes/floor_default.tscn"),
 	preload("res://Scenes/Ground_Scenes/floor_hazard.tscn")
 ]
 
