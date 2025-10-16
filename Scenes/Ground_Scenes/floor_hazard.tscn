@@ -40,7 +40,6 @@ texture = ExtResource("3_l01re")
 [node name="TallStump1" type="Area2D" parent="FloorSprite"]
 visible = false
 position = Vector2(0, 0.499999)
-scale = Vector2(1, 1)
 script = ExtResource("3_ygl0w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/TallStump1"]
@@ -53,7 +52,6 @@ texture = ExtResource("5_miu6v")
 [node name="TallStump2" type="Area2D" parent="FloorSprite"]
 visible = false
 position = Vector2(0, 0.499999)
-scale = Vector2(1, 1)
 script = ExtResource("3_ygl0w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/TallStump2"]
