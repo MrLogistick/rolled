@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cs7dxcd1t3jsa" path="res://Scripts/Manager.gd" id="1_kxpqo"]
 [ext_resource type="PackedScene" uid="uid://b7einx7u6fg2" path="res://Scenes/player.tscn" id="1_u2lo2"]
 [ext_resource type="FontFile" uid="uid://b2iu6ks5misbq" path="res://Fonts/PixelFont.ttf" id="2_1kwmr"]
-[ext_resource type="Script" uid="uid://dqpplg1chser0" path="res://Scripts/CloudManager.gd" id="3_1kwmr"]
+[ext_resource type="Script" uid="uid://6mjrkkwpmp2h" path="res://Scenes/camera_follow.gd" id="3_v8tvq"]
 [ext_resource type="Script" uid="uid://cikog24htdonh" path="res://Scripts/spawn_point.gd" id="5_7osyn"]
 
 [node name="HamishScene" type="Node2D"]
@@ -14,13 +14,20 @@ script = ExtResource("1_kxpqo")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_u2lo2")]
 unique_name_in_owner = true
-position = Vector2(-250, -50)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-100, -50)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
+zoom = Vector2(2, 2)
+script = ExtResource("3_v8tvq")
+MAX_DIST = 30.0
+ACCELERATION = 6.0
+DECCELERATION = 0.9
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 follow_viewport_enabled = true
 
 [node name="DistanceText" type="Label" parent="CanvasLayer"]
@@ -51,16 +58,11 @@ offset_right = 1.0
 offset_bottom = 1.0
 scale = Vector2(2000, 1000)
 pivot_offset = Vector2(0.5, 0.5)
-color = Color(0.376471, 0.921569, 1, 1)
-
-[node name="CloudManager" type="Node2D" parent="."]
-script = ExtResource("3_1kwmr")
-
-[node name="DistanceTracker" type="Timer" parent="."]
-autostart = true
+color = Color(0.269681, 0.511313, 0.629186, 1)
 
 [node name="GroundManager" type="Node2D" parent="."]
 
 [node name="SpawnPoint" type="Node2D" parent="GroundManager"]
 unique_name_in_owner = true
 script = ExtResource("5_7osyn")
+SPAWNPOINT = Vector2(300, -10)

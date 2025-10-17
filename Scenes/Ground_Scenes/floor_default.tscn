@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://djtvxtaleqcjg"]
+
+[ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_68803"]
+[ext_resource type="Texture2D" uid="uid://bkvwk4fg7w54r" path="res://Sprites/Ground_Shallow.png" id="2_ulryk"]
+
+[node name="FloorDefault" type="StaticBody2D"]
+z_index = 1
+rotation = 0.244346
+scale = Vector2(2, 2)
+script = ExtResource("1_68803")
+
+[node name="FloorCollider" type="CollisionPolygon2D" parent="."]
+rotation = -0.244346
+polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
+
+[node name="FloorSprite" type="Sprite2D" parent="."]
+rotation = -0.244346
+texture = ExtResource("2_ulryk")
+
+[node name="EndPlatform" type="Node2D" parent="FloorSprite"]
+position = Vector2(32, 8)

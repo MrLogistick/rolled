@@ -1,46 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://wghy4o2n4qpk"]
+[gd_scene load_steps=7 format=3 uid="uid://dai5ss7ft6gsf"]
 
-[ext_resource type="Texture2D" uid="uid://bx0qta80mu7u5" path="res://Sprites/Ground.png" id="1_vhvvt"]
-[ext_resource type="Texture2D" uid="uid://dyuy5nrydrlrj" path="res://Assets/tile_0068.png" id="3_15r1u"]
+[ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_ap8s3"]
+[ext_resource type="Texture2D" uid="uid://bkvwk4fg7w54r" path="res://Sprites/Ground_Shallow.png" id="2_aywms"]
+[ext_resource type="Texture2D" uid="uid://cx7ieta05gvyd" path="res://Sprites/Single_Stump.png" id="3_l01re"]
+[ext_resource type="Script" uid="uid://cvf6fg0rbfn01" path="res://Scenes/Ground_Scenes/hazard.gd" id="3_ygl0w"]
+[ext_resource type="Texture2D" uid="uid://cq2ccmp5wka30" path="res://Sprites/Single_Tall_Stump.png" id="5_miu6v"]
+[ext_resource type="Texture2D" uid="uid://dcvw1jkcpbcog" path="res://Sprites/Single_Tall_Stump_2.png" id="6_p7l37"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hstq5"]
-size = Vector2(13.25, 8.67269)
+[node name="FloorHazard" type="StaticBody2D" node_paths=PackedStringArray("sprites")]
+z_index = 1
+rotation = 0.244346
+scale = Vector2(2, 2)
+script = ExtResource("1_ap8s3")
+sprites = [NodePath("FloorSprite/SmallStump"), NodePath("FloorSprite/TallStump1"), NodePath("FloorSprite/TallStump2")]
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="FloorCollider" type="CollisionPolygon2D" parent="."]
+rotation = -0.244346
+polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
 
-[node name="EndPlatform" type="Node2D" parent="."]
-position = Vector2(32, 32)
+[node name="FloorSprite" type="Sprite2D" parent="."]
+rotation = -0.244346
+texture = ExtResource("2_aywms")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_vhvvt")
+[node name="EndPlatform" type="Node2D" parent="FloorSprite"]
+position = Vector2(32, 8)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-32, 0, -32, -32, 32, 0, 32, 32)
+[node name="SmallStump" type="Area2D" parent="FloorSprite"]
+visible = false
+position = Vector2(0, 0.5)
+script = ExtResource("3_ygl0w")
 
-[node name="SpikeSprite2d" type="Sprite2D" parent="." groups=["Danger"]]
-texture_filter = 1
-position = Vector2(-12, -32)
-rotation = 0.462512
-texture = ExtResource("3_15r1u")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/SmallStump"]
+polygon = PackedVector2Array(-6, -30, 6, -30, 6, -19, 9, -14, -9, -19, -6, -22)
 
-[node name="Area2D" type="Area2D" parent="SpikeSprite2d" groups=["Danger"]]
+[node name="HazardSprite" type="Sprite2D" parent="FloorSprite/SmallStump"]
+position = Vector2(0, -8)
+texture = ExtResource("3_l01re")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeSprite2d/Area2D" groups=["Danger"]]
-position = Vector2(-4.76837e-07, 5.66367)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_hstq5")
-debug_color = Color(0.895783, 0.246994, 0.516154, 0.419608)
+[node name="TallStump1" type="Area2D" parent="FloorSprite"]
+visible = false
+position = Vector2(0, 0.499999)
+script = ExtResource("3_ygl0w")
 
-[node name="SpikeSprite2d2" type="Sprite2D" parent="." groups=["Danger"]]
-texture_filter = 1
-position = Vector2(24, -14)
-rotation = 0.462512
-texture = ExtResource("3_15r1u")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/TallStump1"]
+polygon = PackedVector2Array(-6, -38, 6, -38, 6, -19, 9, -14, -9, -19, -6, -22)
 
-[node name="Area2D" type="Area2D" parent="SpikeSprite2d2" groups=["Danger"]]
+[node name="HazardSprite" type="Sprite2D" parent="FloorSprite/TallStump1"]
+position = Vector2(0, -8)
+texture = ExtResource("5_miu6v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeSprite2d2/Area2D" groups=["Danger"]]
-position = Vector2(-4.76837e-07, 5.66367)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_hstq5")
-debug_color = Color(0.895783, 0.246994, 0.516154, 0.419608)
+[node name="TallStump2" type="Area2D" parent="FloorSprite"]
+visible = false
+position = Vector2(0, 0.499999)
+script = ExtResource("3_ygl0w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/TallStump2"]
+polygon = PackedVector2Array(-4, -34, -6, -38, 4, -38, 5, -26, 6, -19, 9, -14, -8, -19, -3, -22, -4, -29)
+
+[node name="HazardSprite" type="Sprite2D" parent="FloorSprite/TallStump2"]
+position = Vector2(0, -8)
+texture = ExtResource("6_p7l37")
+
+[connection signal="body_entered" from="FloorSprite/SmallStump" to="FloorSprite/SmallStump" method="_on_body_entered"]
+[connection signal="body_entered" from="FloorSprite/TallStump1" to="FloorSprite/TallStump1" method="_on_body_entered"]
+[connection signal="body_entered" from="FloorSprite/TallStump2" to="FloorSprite/TallStump2" method="_on_body_entered"]
