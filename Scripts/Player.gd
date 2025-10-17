@@ -3,6 +3,12 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var manager: Node2D = %Manager
 
+const DEATH_SCREEN = preload("uid://cj0lfmublukba")
+
+
+@onready var MainScene: Node2D = $".."
+
+
 var POSITION = -100
 var JUMP_VELOCITY = -350
 var GRAVITY = 800
@@ -51,4 +57,6 @@ func _jump_process(delta: float):
 		velocity.y = FORCE_FALL
 
 func death():
+	var death_instance = DEATH_SCREEN.instantiate()
+	manager.add_child(death_instance)
 	manager.end = true

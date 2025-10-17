@@ -8,7 +8,7 @@ var distance: float = 0
 @export var start_speed: float = 156
 var game_speed: float = start_speed
 @export var end_multiplier: float = 0.9
-
+var retry = false
 func _ready() -> void:
 	distance_text = canvas_layer.get_child(0)
 
@@ -16,9 +16,9 @@ func _process(_delta: float) -> void:
 	if end:
 		game_speed *= end_multiplier
 		
-		if game_speed <= 0.1:
-			await get_tree().create_timer(1.0).timeout
+		if game_speed <= 0.1 && retry == true:
 			get_tree().reload_current_scene()
+			retry = false
 	else:
 		_dist_counter(0.1)
 
