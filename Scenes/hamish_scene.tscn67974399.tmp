@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca1eolm3dtx53"]
+[gd_scene load_steps=7 format=3 uid="uid://ca1eolm3dtx53"]
 
 [ext_resource type="Script" uid="uid://cs7dxcd1t3jsa" path="res://Scripts/Manager.gd" id="1_kxpqo"]
 [ext_resource type="PackedScene" uid="uid://b7einx7u6fg2" path="res://Scenes/player.tscn" id="1_u2lo2"]
@@ -6,32 +6,29 @@
 [ext_resource type="Script" uid="uid://6mjrkkwpmp2h" path="res://Scenes/camera_follow.gd" id="3_v8tvq"]
 [ext_resource type="Script" uid="uid://cikog24htdonh" path="res://Scripts/spawn_point.gd" id="5_7osyn"]
 [ext_resource type="PackedScene" uid="uid://bnrn4ri2escbc" path="res://Scenes/Water.tscn" id="6_v8tvq"]
-[ext_resource type="Script" uid="uid://bnxklp03x5ylm" path="res://Scenes/water_elevation.gd" id="7_2ggfe"]
 
 [node name="HamishScene" type="Node2D"]
 
 [node name="Manager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_kxpqo")
-start_speed = 60.0
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_u2lo2")]
 unique_name_in_owner = true
-position = Vector2(-50, -50)
+position = Vector2(-100, -50)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 script = ExtResource("3_v8tvq")
-MAX_DIST = 15.0
-CAM_SPEED = 10.0
+MAX_DIST = 30.0
 ACCELERATION = 6.0
 DECCELERATION = 0.9
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-scale = Vector2(0.25, 0.25)
-transform = Transform2D(0.25, 0, 0, 0.25, 0, 0)
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 follow_viewport_enabled = true
 
 [node name="DistanceText" type="Label" parent="CanvasLayer"]
@@ -43,7 +40,18 @@ offset_bottom = -242.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_1kwmr")
 theme_override_font_sizes/font_size = 76
-text = "1200 Meters"
+text = "Distance: 100"
+
+[node name="RankText" type="Label" parent="CanvasLayer"]
+texture_filter = 2
+offset_left = -571.0
+offset_top = -239.0
+offset_right = -92.0
+offset_bottom = -163.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1kwmr")
+theme_override_font_sizes/font_size = 76
+text = "Rank: D"
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -1
@@ -58,11 +66,8 @@ color = Color(0.269681, 0.511313, 0.629186, 1)
 [node name="SpawnPoint" type="Node2D" parent="GroundManager"]
 unique_name_in_owner = true
 script = ExtResource("5_7osyn")
-SPAWNPOINT = Vector2(150, -5)
+SPAWNPOINT = Vector2(300, -10)
 
 [node name="TileMapLayer" parent="." instance=ExtResource("6_v8tvq")]
-visible = false
-z_index = 2
-position = Vector2(0, 200)
+position = Vector2(0, -300)
 scale = Vector2(2, 2)
-script = ExtResource("7_2ggfe")

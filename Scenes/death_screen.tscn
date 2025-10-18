@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj0lfmublukba"]
+[gd_scene load_steps=5 format=3 uid="uid://dcwfwsr4qv8ro"]
 
 [ext_resource type="Script" uid="uid://b2sgtd4hp7ot" path="res://Scripts/DeathScreen.gd" id="1_rwas2"]
 [ext_resource type="FontFile" uid="uid://b2iu6ks5misbq" path="res://Fonts/PixelFont.ttf" id="2_tseak"]
 [ext_resource type="StyleBox" uid="uid://d07wgvjjibcaw" path="res://Styles/Gray_Button.tres" id="3_tseak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tseak"]
-bg_color = Color(0.20152658, 0.20152658, 0.20152652, 1)
+bg_color = Color(0.201527, 0.201527, 0.201527, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6117647, 0, 0.15294118, 0.50980395)
+color = Color(0.611765, 0, 0.152941, 0.509804)
 
 [node name="YouDiedText" type="Label" parent="."]
 texture_filter = 1
@@ -78,9 +78,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tseak")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = ExtResource("3_tseak")
-theme_override_styles/pressed = ExtResource("3_tseak")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tseak")
+theme_override_styles/pressed = ExtResource("3_tseak")
+theme_override_styles/normal = ExtResource("3_tseak")
 text = "Retry"
 
 [node name="MenuButton" type="Button" parent="."]
@@ -98,9 +98,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tseak")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = ExtResource("3_tseak")
-theme_override_styles/pressed = ExtResource("3_tseak")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tseak")
+theme_override_styles/pressed = ExtResource("3_tseak")
+theme_override_styles/normal = ExtResource("3_tseak")
 text = "Menu"
 
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]

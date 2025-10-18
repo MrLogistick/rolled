@@ -6,7 +6,6 @@
 [node name="FloorDefault" type="StaticBody2D"]
 z_index = 1
 rotation = 0.244346
-scale = Vector2(2, 2)
 script = ExtResource("1_68803")
 
 [node name="FloorCollider" type="CollisionPolygon2D" parent="."]

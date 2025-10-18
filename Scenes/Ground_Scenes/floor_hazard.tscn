@@ -10,7 +10,6 @@
 [node name="FloorHazard" type="StaticBody2D" node_paths=PackedStringArray("sprites")]
 z_index = 1
 rotation = 0.244346
-scale = Vector2(2, 2)
 script = ExtResource("1_ap8s3")
 sprites = [NodePath("FloorSprite/SmallStump"), NodePath("FloorSprite/TallStump1"), NodePath("FloorSprite/TallStump2")]
 

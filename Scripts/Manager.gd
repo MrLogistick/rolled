@@ -3,13 +3,20 @@ extends Node2D
 @onready var canvas_layer: CanvasLayer = %CanvasLayer
 var distance_text
 
-var end = false
-var distance: float = 0
-@export var start_speed: float = 156
-var game_speed: float = start_speed
 @export var end_multiplier: float = 0.9
+@export var start_speed: float = 156
+@export var start_elevation: float = 1200
+@export var speed_to_distance_conversion: float = 1000
+
+var end = false
+var elevation
+var game_speed
 var retry = false
+
 func _ready() -> void:
+	elevation = start_elevation
+	game_speed = start_speed
+	
 	distance_text = canvas_layer.get_child(0)
 
 func _process(_delta: float) -> void:
@@ -20,11 +27,12 @@ func _process(_delta: float) -> void:
 			get_tree().reload_current_scene()
 			retry = false
 	else:
-		_dist_counter(0.1)
+		distance_text.text = str(int(round(elevation))) + " Meters"
+		
+		elevation -= game_speed / speed_to_distance_conversion
+		# game_speed += 0.01
 
 func _dist_counter(delay: float):
-	await get_tree().create_timer(delay).timeout
-	distance += 0.1
 	
-	var score = round(distance * 100) / 100
-	distance_text.text = str("%05.0f" % score) + " Meters"
+	
+	await get_tree().create_timer(delay).timeout

@@ -3,17 +3,17 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var manager: Node2D = %Manager
 
-const DEATH_SCREEN = preload("uid://cj0lfmublukba")
+const DEATH_SCREEN = preload("res://Scenes/death_screen.tscn")
 
 
 @onready var MainScene: Node2D = $".."
 
 
-var POSITION = -100
-var JUMP_VELOCITY = -350
-var GRAVITY = 800
-var FALL_GRAVITY = 1200
-var FORCE_FALL = 700
+var POSITION = -50
+var JUMP_VELOCITY = -175
+var GRAVITY = 400
+var FALL_GRAVITY = 600
+var FORCE_FALL = 350
 var JUMP_BUFFER = 0.1
 
 var LRMovement = false
