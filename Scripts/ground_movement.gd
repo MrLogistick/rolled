@@ -26,9 +26,7 @@ func _process(delta: float) -> void:
 		print("'spawnpoint' has not been set.")
 		return
 	
-	var old = global_position
 	global_position += -transform.x * manager.game_speed * delta
-	print(_pythagoras(global_position - old))
 	
 	var ep_position = end_platform.global_position
 	# spawns a new platform when the edge of the old platform reaches the edge
@@ -40,6 +38,3 @@ func _process(delta: float) -> void:
 	# destroys platform once out of range
 	if ep_position.x < -spawnpoint.x:
 		queue_free()
-
-func _pythagoras(value: Vector2) -> float:
-	return value.x * value.x + value.y * value.y
