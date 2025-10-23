@@ -17,6 +17,7 @@ func _ready() -> void:
 	if initial_number <= 0:
 		initial = false
 	
+	# chooses which variant the platform will be
 	if sprites:
 		var chosen_sprite = randi() % sprites.size()
 		sprites[chosen_sprite].visible = true

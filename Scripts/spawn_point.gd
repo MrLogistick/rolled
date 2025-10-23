@@ -7,7 +7,8 @@ var initial_number: int = 5
 var ground_list = [
 	preload("res://Scenes/Ground_Scenes/floor_default.tscn"),
 	preload("res://Scenes/Ground_Scenes/floor_default.tscn"),
-	preload("res://Scenes/Ground_Scenes/floor_hazard.tscn")
+	preload("res://Scenes/Ground_Scenes/floor_hazard.tscn"),
+	preload("res://Scenes/Ground_Scenes/floor_drop.tscn")
 ]
 
 func _ready() -> void:
@@ -24,6 +25,7 @@ func spawn_ground(pos: Vector2, initial: bool) -> void:
 	ground.global_position = pos
 	ground.spawn_node = %SpawnPoint
 	ground.manager = %Manager
+	manager.lowest_point = ground.end_platform
 	
 	initial_number -= 1
 	ground.initial_number = initial_number

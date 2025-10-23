@@ -3,25 +3,20 @@ extends Camera2D
 @onready var player: CharacterBody2D = %Player
 @onready var manager: Node2D = %Manager
 
-@export var MAX_DIST: float = 50
-@export var CAM_SPEED: float = 20
-@export var ACCELERATION: float = 10
-@export var DECCELERATION: float = 0.6
-var current_speed: float = 0.0
+@export var smoothen: float
+@export var max_distance: float = 40.0
+var previous_pos: float
 
 func _process(delta: float) -> void:
-	position.y += current_speed
-	clamp(current_speed, -CAM_SPEED, CAM_SPEED)
+	position.y = lerp(position.y, previous_pos, smoothen * delta)
+	var distance = player.position.y - position.y
 	
-	if manager.end:
-		current_speed *= manager.end_multiplier
-		return
+	if abs(distance) > max_distance:
+		previous_pos = player.position.y
+	if player.is_on_floor():
+		previous_pos = player.last_grounded
 	
-	var y_distance = player.position.y - position.y
-	
-	if y_distance > MAX_DIST:
-		current_speed += ACCELERATION * delta
-	elif y_distance < -MAX_DIST:
-		current_speed -= ACCELERATION * delta
+	if player && manager.end:
+		smoothen += manager.end_multiplier
 	else:
-		current_speed *= DECCELERATION
+		smoothen = 5.0
