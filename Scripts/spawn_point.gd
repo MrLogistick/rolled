@@ -25,7 +25,6 @@ func spawn_ground(pos: Vector2, initial: bool) -> void:
 	ground.global_position = pos
 	ground.spawn_node = %SpawnPoint
 	ground.manager = %Manager
-	manager.lowest_point = ground.end_platform
 	
 	initial_number -= 1
 	ground.initial_number = initial_number

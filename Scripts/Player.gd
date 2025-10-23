@@ -59,3 +59,4 @@ func death():
 	var death_instance = DEATH_SCREEN.instantiate()
 	manager.add_child(death_instance)
 	manager.end = true
+	manager.death_screen = death_instance
