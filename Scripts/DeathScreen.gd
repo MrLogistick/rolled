@@ -1,15 +1,21 @@
 extends CanvasLayer
 
-@onready var Manager = get_parent()
-#@onready var Distance_Tracker: Label = $Distance
+@onready var manager = get_parent()
+@onready var text: Label = $YouDiedText
 
 var Distance: float = 0
 func _process(_delta: float) -> void:
-	if Input.is_physical_key_pressed(KEY_R):
-		Manager.retry = true
+	if manager.elevation <= 0.0:
+		text.text = "You Win!"
+	else:
+		text.text = "You Died!"
 	
-	#Distance = MainManager.Distance
-	#Distance_Tracker.text = str(Distance)
+	if Input.is_physical_key_pressed(KEY_R):
+		manager.retry = true
 	
 func _on_retry_button_pressed() -> void:
-	Manager.retry = true
+	manager.retry = true
+
+func _on_tutorial_button_pressed() -> void:
+	Global.tutorial = true
+	manager.retry = true

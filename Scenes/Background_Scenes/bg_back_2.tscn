@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://k8e7hfub3j67"]
+
+[ext_resource type="Script" uid="uid://boh5dd3crugtj" path="res://Scripts/Parallax.gd" id="1_81lm1"]
+[ext_resource type="Texture2D" uid="uid://bwps40jj113nf" path="res://Sprites/Background/Tree Background_Back.png" id="2_c2enb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81lm1"]
+size = Vector2(50, 50)
+
+[node name="BGBack2" type="Node2D" groups=["Parallax"]]
+rotation = 0.244346
+script = ExtResource("1_81lm1")
+offset = 0.1
+obj_name = "bg_back_2"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 1)
+z_index = -6
+rotation = -0.244346
+texture = ExtResource("2_c2enb")
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = -0.244346
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_81lm1")

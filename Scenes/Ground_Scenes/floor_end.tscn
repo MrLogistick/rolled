@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3u6f4yxraea"]
+
+[ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_d8m4w"]
+[ext_resource type="Texture2D" uid="uid://vy1w4vnkewgf" path="res://Sprites/floor_end.png" id="2_d8m4w"]
+
+[node name="FloorDefault" type="StaticBody2D" groups=["Ground"]]
+z_index = 1
+rotation = 0.244346
+script = ExtResource("1_d8m4w")
+
+[node name="FloorCollider" type="CollisionPolygon2D" parent="."]
+rotation = -0.244346
+polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 29, -9, 29, -8, 30, -8, 30, -4.05383, 31, -4, 31, 456, -32, 456)
+
+[node name="FloorSprite" type="Sprite2D" parent="."]
+position = Vector2(83.3046, 201.842)
+rotation = -0.244346
+texture = ExtResource("2_d8m4w")

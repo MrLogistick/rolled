@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddtpl5t6hv2mm"]
+
+[ext_resource type="Script" uid="uid://cihy31w4jxp4g" path="res://Scripts/pause_panel.gd" id="1_dp4iu"]
+[ext_resource type="Texture2D" uid="uid://bowb1ilesjuig" path="res://Sprites/pause.png" id="2_enojb"]
+
+[node name="PauseScreen" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_dp4iu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("2_enojb")
+hframes = 4
+vframes = 2
+frame = 7

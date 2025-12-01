@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://ybt3bro5n242"]
+
+[ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_4c7cw"]
+[ext_resource type="Texture2D" uid="uid://b76a5iav7mik7" path="res://Sprites/floor_default.png" id="2_yt2eq"]
+[ext_resource type="Texture2D" uid="uid://bbeajlyv5y17b" path="res://Sprites/bubblemound.png" id="3_6inn5"]
+[ext_resource type="Texture2D" uid="uid://cym6ml23sf7v0" path="res://Sprites/bubbles.png" id="4_fbemh"]
+[ext_resource type="Script" uid="uid://bs5t3bpx8fnrm" path="res://Scripts/bubbles.gd" id="5_fbemh"]
+[ext_resource type="Script" uid="uid://v1uk7jm68ds1" path="res://Scripts/pause__particles.gd" id="5_kw50l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6inn5"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_fbemh"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 140.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kw50l"]
+curve = SubResource("Curve_fbemh")
+
+[sub_resource type="Curve" id="Curve_3adm7"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_t211c"]
+curve = SubResource("Curve_3adm7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ku35t"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, -10, 0)
+spread = 30.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+damping_curve = SubResource("CurveTexture_kw50l")
+scale_curve = SubResource("CurveTexture_t211c")
+anim_offset_min = 0.7
+anim_offset_max = 0.9
+collision_use_scale = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6inn5"]
+size = Vector2(6, 29)
+
+[node name="FloorDefault" type="StaticBody2D" groups=["Ground"]]
+z_index = 1
+rotation = 0.244346
+script = ExtResource("1_4c7cw")
+bubbles = true
+
+[node name="FloorCollider" type="CollisionPolygon2D" parent="."]
+rotation = -0.244346
+polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, -32, 9)
+
+[node name="FloorSprite" type="Sprite2D" parent="."]
+position = Vector2(23.2245, 93.1484)
+rotation = -0.244346
+texture = ExtResource("2_yt2eq")
+
+[node name="EndPlatform" type="Node2D" parent="FloorSprite"]
+position = Vector2(32, -88)
+
+[node name="BubbleMound" type="Sprite2D" parent="FloorSprite"]
+position = Vector2(-5.72205e-06, -96)
+texture = ExtResource("3_6inn5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="FloorSprite/BubbleMound"]
+z_index = 5
+material = SubResource("CanvasItemMaterial_6inn5")
+position = Vector2(-0.999998, -20)
+amount = 48
+texture = ExtResource("4_fbemh")
+lifetime = 10.0
+preprocess = 5.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ku35t")
+script = ExtResource("5_kw50l")
+
+[node name="Area2D" type="Area2D" parent="FloorSprite/BubbleMound"]
+script = ExtResource("5_fbemh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSprite/BubbleMound/Area2D"]
+position = Vector2(-0.999998, -27.5)
+shape = SubResource("RectangleShape2D_6inn5")
+
+[connection signal="body_entered" from="FloorSprite/BubbleMound/Area2D" to="FloorSprite/BubbleMound/Area2D" method="_on_body_entered"]

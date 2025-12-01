@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkvwk4fg7w54r"
-path="res://.godot/imported/Ground_Shallow.png-32b6187e2d8a0035dcc5adcfdc76d646.ctex"
+uid="uid://bhtiyd8e6vinc"
+path="res://.godot/imported/Tutorial.png-0faba98af4738294497eb2ab64be0521.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Ground_Shallow.png"
-dest_files=["res://.godot/imported/Ground_Shallow.png-32b6187e2d8a0035dcc5adcfdc76d646.ctex"]
+source_file="res://Sprites/Tutorial.png"
+dest_files=["res://.godot/imported/Tutorial.png-0faba98af4738294497eb2ab64be0521.ctex"]
 
 [params]
 

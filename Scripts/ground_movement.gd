@@ -5,6 +5,7 @@ var spawn_node
 var manager
 
 @export var sprites: Array[Area2D]
+@export var bubbles: bool
 
 # Steep: 71.5 Shallow 65.5
 const PLATFORM_SIZE: float = 65.5
@@ -29,6 +30,7 @@ func _process(delta: float) -> void:
 	
 	global_position += -transform.x * manager.game_speed * delta
 	
+	if !end_platform: return
 	var ep_position = end_platform.global_position
 	# spawns a new platform when the edge of the old platform reaches the edge
 	if ep_position.x < spawnpoint.x && has_spawned == false:
@@ -38,4 +40,7 @@ func _process(delta: float) -> void:
 	
 	# destroys platform once out of range
 	if ep_position.x < -spawnpoint.x:
+		if manager.pregame && bubbles:
+			spawn_node.tutorial_bubbles = false
+		
 		queue_free()

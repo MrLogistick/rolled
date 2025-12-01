@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://be6t8lyb6nldp"]
+
+[ext_resource type="Texture2D" uid="uid://d0u2t1rxtubob" path="res://Sprites/Rim.png" id="1_jfgu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu1ye"]
+atlas = ExtResource("1_jfgu8")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4j5"]
+atlas = ExtResource("1_jfgu8")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42vmh"]
+atlas = ExtResource("1_jfgu8")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be0il"]
+atlas = ExtResource("1_jfgu8")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6xgh"]
+atlas = ExtResource("1_jfgu8")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xkvx"]
+atlas = ExtResource("1_jfgu8")
+region = Rect2(240, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn37u"]
+atlas = ExtResource("1_jfgu8")
+region = Rect2(288, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv333"]
+atlas = ExtResource("1_jfgu8")
+region = Rect2(336, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yfd0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu1ye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct4j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42vmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be0il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6xgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xkvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn37u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv333")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Rim" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1yfd0")

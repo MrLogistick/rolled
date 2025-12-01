@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://ca1eolm3dtx53"]
+
+[ext_resource type="Script" uid="uid://cs7dxcd1t3jsa" path="res://Scripts/Manager.gd" id="1_kxpqo"]
+[ext_resource type="PackedScene" uid="uid://b7einx7u6fg2" path="res://Scenes/player.tscn" id="1_u2lo2"]
+[ext_resource type="FontFile" uid="uid://b2iu6ks5misbq" path="res://Fonts/PixelFont.ttf" id="2_1kwmr"]
+[ext_resource type="Script" uid="uid://6mjrkkwpmp2h" path="res://Scenes/camera_follow.gd" id="3_v8tvq"]
+[ext_resource type="Script" uid="uid://eql5f24q06vg" path="res://Scenes/canvas_follow.gd" id="4_3j53n"]
+[ext_resource type="Script" uid="uid://cikog24htdonh" path="res://Scripts/spawn_point.gd" id="5_7osyn"]
+[ext_resource type="PackedScene" uid="uid://bnrn4ri2escbc" path="res://Scenes/Water.tscn" id="6_v8tvq"]
+[ext_resource type="Script" uid="uid://bnxklp03x5ylm" path="res://Scenes/water_elevation.gd" id="7_2ggfe"]
+[ext_resource type="Script" uid="uid://dl5cl0q7q2xl5" path="res://Scenes/background_spawn.gd" id="9_5ftlk"]
+
+[node name="HamishScene" type="Node2D"]
+
+[node name="Manager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_kxpqo")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_u2lo2")]
+unique_name_in_owner = true
+position = Vector2(-50, -10)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(3, 3)
+script = ExtResource("3_v8tvq")
+max_distance = 50.0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+z_index = -10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -112.5
+offset_right = 200.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(4.23551e-06, 0.502902, 0.713616, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+unique_name_in_owner = true
+scale = Vector2(0.33, 0.33)
+transform = Transform2D(0.33, 0, 0, 0.33, 0, 0)
+follow_viewport_enabled = true
+script = ExtResource("4_3j53n")
+
+[node name="DistanceText" type="Label" parent="Camera2D/CanvasLayer"]
+texture_filter = 2
+offset_left = -571.0
+offset_top = -318.0
+offset_right = -92.0
+offset_bottom = -242.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1kwmr")
+theme_override_font_sizes/font_size = 76
+text = "1200 Meters"
+
+[node name="GroundManager" type="Node2D" parent="."]
+
+[node name="SpawnPoint" type="Node2D" parent="GroundManager"]
+unique_name_in_owner = true
+script = ExtResource("5_7osyn")
+SPAWNPOINT = Vector2(200, 15)
+
+[node name="TileMapLayer" parent="." instance=ExtResource("6_v8tvq")]
+visible = false
+z_index = 2
+position = Vector2(0, 200)
+script = ExtResource("7_2ggfe")
+
+[node name="BackgroundManager" type="Node2D" parent="."]
+script = ExtResource("9_5ftlk")

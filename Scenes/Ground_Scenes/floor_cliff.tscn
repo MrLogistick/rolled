@@ -1,70 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://vfje3e7afqqa"]
+[gd_scene load_steps=3 format=3 uid="uid://cdm2nghwcny8o"]
 
 [ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_aylub"]
-[ext_resource type="Texture2D" uid="uid://bkvwk4fg7w54r" path="res://Sprites/Ground_Shallow.png" id="2_vyron"]
+[ext_resource type="Texture2D" uid="uid://dyt28a2kkw3su" path="res://Sprites/floor_cliff.png" id="2_aylub"]
 
-[node name="FloorDefault" type="StaticBody2D"]
+[node name="FloorDefault" type="StaticBody2D" groups=["Ground"]]
 z_index = 1
 rotation = 0.244346
 script = ExtResource("1_aylub")
 
 [node name="FloorCollider" type="CollisionPolygon2D" parent="."]
 rotation = -0.244346
-polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
+polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 29, -9, 29, -8, 30, -8, 30, -4, 31, -4, 31, -1, 31, 70, 32, 70, 32, 72, 36, 72, 36, 73, 40, 73, 40, 74, 44, 74, 44, 75, 48, 75, 48, 76, 52, 76, 52, 77, 56, 77, 56, 78, 60, 78, 60, 79, 64, 79, 64, 80, 68, 80, 68, 81, 72, 81, 72, 82, 76, 82, 76, 83, 80, 83, 80, 84, 84, 84, 84, 85, 88, 85, 88, 86, 92, 86, 92, 87, 96, 87, 96, 127, -32, 127)
 
 [node name="FloorSprite" type="Sprite2D" parent="."]
+position = Vector2(60.0801, 108.694)
 rotation = -0.244346
-texture = ExtResource("2_vyron")
+texture = ExtResource("2_aylub")
 
 [node name="EndPlatform" type="Node2D" parent="FloorSprite"]
-position = Vector2(96.2286, 155.408)
-
-[node name="FloorCollider2" type="CollisionPolygon2D" parent="."]
-position = Vector2(8.03232, 31.3892)
-rotation = -0.244346
-polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
-
-[node name="FloorSprite2" type="Sprite2D" parent="."]
-position = Vector2(8.03232, 31.3892)
-rotation = -0.244346
-texture = ExtResource("2_vyron")
-
-[node name="FloorCollider3" type="CollisionPolygon2D" parent="."]
-position = Vector2(16.0157, 63.409)
-rotation = -0.244346
-polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
-
-[node name="FloorSprite3" type="Sprite2D" parent="."]
-position = Vector2(16.0157, 63.409)
-rotation = -0.244346
-texture = ExtResource("2_vyron")
-
-[node name="FloorCollider4" type="CollisionPolygon2D" parent="."]
-position = Vector2(23.9992, 95.4287)
-rotation = -0.244346
-polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
-
-[node name="FloorSprite4" type="Sprite2D" parent="."]
-position = Vector2(23.9992, 95.4287)
-rotation = -0.244346
-texture = ExtResource("2_vyron")
-
-[node name="FloorCollider5" type="CollisionPolygon2D" parent="."]
-position = Vector2(31.9826, 127.448)
-rotation = -0.244346
-polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
-
-[node name="FloorSprite5" type="Sprite2D" parent="."]
-position = Vector2(31.9826, 127.448)
-rotation = -0.244346
-texture = ExtResource("2_vyron")
-
-[node name="FloorCollider6" type="CollisionPolygon2D" parent="."]
-position = Vector2(97.9523, 127.49)
-rotation = -0.244346
-polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
-
-[node name="FloorSprite6" type="Sprite2D" parent="."]
-position = Vector2(97.9818, 127.491)
-rotation = -0.244346
-texture = ExtResource("2_vyron")
+position = Vector2(64, -16)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://dai5ss7ft6gsf"]
 
 [ext_resource type="Script" uid="uid://b047i1fjjj3le" path="res://Scripts/ground_movement.gd" id="1_ap8s3"]
-[ext_resource type="Texture2D" uid="uid://bkvwk4fg7w54r" path="res://Sprites/Ground_Shallow.png" id="2_aywms"]
+[ext_resource type="Texture2D" uid="uid://b76a5iav7mik7" path="res://Sprites/floor_default.png" id="2_miu6v"]
 [ext_resource type="Texture2D" uid="uid://cx7ieta05gvyd" path="res://Sprites/Single_Stump.png" id="3_l01re"]
-[ext_resource type="Script" uid="uid://cvf6fg0rbfn01" path="res://Scenes/Ground_Scenes/hazard.gd" id="3_ygl0w"]
+[ext_resource type="Script" uid="uid://cvf6fg0rbfn01" path="res://Scripts/hazard.gd" id="3_ygl0w"]
 [ext_resource type="Texture2D" uid="uid://cq2ccmp5wka30" path="res://Sprites/Single_Tall_Stump.png" id="5_miu6v"]
 [ext_resource type="Texture2D" uid="uid://dcvw1jkcpbcog" path="res://Sprites/Single_Tall_Stump_2.png" id="6_p7l37"]
 
-[node name="FloorHazard" type="StaticBody2D" node_paths=PackedStringArray("sprites")]
+[node name="FloorHazard" type="StaticBody2D" node_paths=PackedStringArray("sprites") groups=["Ground"]]
 z_index = 1
 rotation = 0.244346
 script = ExtResource("1_ap8s3")
@@ -18,15 +18,16 @@ rotation = -0.244346
 polygon = PackedVector2Array(-32, -24, -28, -24, -28, -23, -24, -23, -24, -22, -20, -22, -20, -21, -16, -21, -16, -20, -12, -20, -12, -19, -8, -19, -8, -18, -4, -18, -4, -17, 0, -17, 0, -16, 4, -16, 4, -15, 8, -15, 8, -14, 12, -14, 12, -13, 16, -13, 16, -12, 20, -12, 20, -11, 24, -11, 24, -10, 28, -10, 28, -9, 32, -9, 32, 24, 28, 24, -32, 9)
 
 [node name="FloorSprite" type="Sprite2D" parent="."]
+position = Vector2(23.2245, 93.1484)
 rotation = -0.244346
-texture = ExtResource("2_aywms")
+texture = ExtResource("2_miu6v")
 
 [node name="EndPlatform" type="Node2D" parent="FloorSprite"]
-position = Vector2(32, 8)
+position = Vector2(32, -88)
 
 [node name="SmallStump" type="Area2D" parent="FloorSprite"]
 visible = false
-position = Vector2(0, 0.5)
+position = Vector2(0, -96)
 script = ExtResource("3_ygl0w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/SmallStump"]
@@ -38,7 +39,7 @@ texture = ExtResource("3_l01re")
 
 [node name="TallStump1" type="Area2D" parent="FloorSprite"]
 visible = false
-position = Vector2(0, 0.499999)
+position = Vector2(0, -96)
 script = ExtResource("3_ygl0w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/TallStump1"]
@@ -50,7 +51,7 @@ texture = ExtResource("5_miu6v")
 
 [node name="TallStump2" type="Area2D" parent="FloorSprite"]
 visible = false
-position = Vector2(0, 0.499999)
+position = Vector2(0, -96)
 script = ExtResource("3_ygl0w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorSprite/TallStump2"]

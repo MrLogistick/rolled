@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpbjr6puoggif"]
+
+[ext_resource type="Texture2D" uid="uid://bhtiyd8e6vinc" path="res://Sprites/Tutorial.png" id="1_lxo4l"]
+[ext_resource type="Script" uid="uid://cmwa1g6flo2hi" path="res://Scripts/play_animation.gd" id="1_mvtbj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxo4l"]
+atlas = ExtResource("1_lxo4l")
+region = Rect2(0, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvtbj"]
+atlas = ExtResource("1_lxo4l")
+region = Rect2(20, 20, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8v6kh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxo4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvtbj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytovr"]
+atlas = ExtResource("1_lxo4l")
+region = Rect2(40, 0, 20, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eafa0"]
+atlas = ExtResource("1_lxo4l")
+region = Rect2(80, 0, 20, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyh2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytovr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eafa0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="ForceFall" type="Node2D"]
+z_index = 20
+script = ExtResource("1_mvtbj")
+
+[node name="Keys" type="AnimatedSprite2D" parent="."]
+position = Vector2(-25, 0)
+sprite_frames = SubResource("SpriteFrames_8v6kh")
+
+[node name="Mouse" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, 0)
+sprite_frames = SubResource("SpriteFrames_yyh2e")
